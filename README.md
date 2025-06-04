@@ -7,14 +7,14 @@ A full-stack **Note Taking Application** built with the MERN stack — **MongoDB
 
 ## 📁 Folder Structure
 /mern-notes-app<br>
-├── /client # React Frontend<br>
+├── /frontend # React Frontend<br>
 │ ├── /src<br>
 │ │ ├── /pages # Login, Register, Dashboard<br>
 │ │ ├── /components # Reusable UI components<br>
 │ │ ├── /api # Axios functions for API calls<br>
 │ │ └── App.js # Main React app component<br>
 │ └── tailwind.config.js<br>
-├── /server # Node + Express Backend<br>
+├── /backend # Node + Express Backend<br>
 │ ├── /controllers # Business logic (auth, notes)<br>
 │ ├── /models # Mongoose schemas (User, Note)<br>
 │ ├── /routes # API routes for auth and notes<br>
