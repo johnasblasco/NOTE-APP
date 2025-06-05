@@ -2,9 +2,15 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthFormInput from '../components/AuthForm';
-import { Link } from 'react-router-dom'; // Only if you're using React Router
+import { Link, useNavigate  } from 'react-router-dom';
+import api from '../api/axios';
+
 
 const Register = () => {
+  
+  const navigate = useNavigate(); 
+
+  
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -20,8 +26,19 @@ const Register = () => {
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Required'),
     }),
-    onSubmit: (values) => {
-      console.log('Register Form Submitted:', values);
+    onSubmit: async (values) => {
+      try {
+        const res = await api.post('/auth/register', {
+          name: values.name,
+          email: values.email,
+          password: values.password,
+        });
+        alert('Registration successful');
+        console.log(res.data);
+        navigate('/login')
+      } catch (err) {
+        alert(err.response?.data?.message || 'Registration failed');
+      }
     },
   });
 
