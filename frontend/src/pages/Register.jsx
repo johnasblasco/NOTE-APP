@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthFormInput from '../components/AuthForm';
 import { Link, useNavigate  } from 'react-router-dom';
-import api from '../api/axios';
+import api from '../api/authApi';
 
 
 const Register = () => {
