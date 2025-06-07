@@ -4,9 +4,10 @@ const API = axios.create({
   baseURL: 'http://localhost:5000/api/notes',
 });
 
-// Intercept each request to inject the token
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token'); // now accessed safely at request time
+  const token = localStorage.getItem('token');
+  console.log('TOKEN:', token);
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
