@@ -5,8 +5,11 @@ import {
   updateNote,
   deleteNote,
 } from '../controllers/noteController.js';
+import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+router.use(protect); // Protect all routes
 
 router.get('/', getNotes);
 router.post('/', createNote);
