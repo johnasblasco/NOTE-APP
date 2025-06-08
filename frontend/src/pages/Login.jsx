@@ -3,11 +3,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthFormInput from '../components/AuthForm';
 import api from '../api/authApi';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
-  
-  const navigate = useNavigate(); 
+
+  const navigate = useNavigate();
 
 
   const formik = useFormik({
@@ -44,9 +44,9 @@ const Login = () => {
         Login
       </button>
       <p className="mt-4 text-sm text-center">
-        Don't have an account? <a href="/register" className="text-blue-600 hover:underline">Register</a>
+        Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
       </p>
-      
+
     </form>
   );
 };
